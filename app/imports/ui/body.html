@@ -1,0 +1,31 @@
+<body>
+  <div>
+    <header>
+      <h1>GTD TOOL</h1>
+    </header>
+  </div>
+  <div>
+    <!-- タスクエリア -->
+    <h2>TASKS AREA</h2>
+    <!-- タスク入力エリア -->
+    <p style="font-weight:bold;">タスクを入力</p>
+    <form class="new-task">
+      <input type="text" name="text" style="width:300px" placeholder="今頭の中にある、しなくてはいけない事は？">
+    </form>
+    <!-- タスク一覧エリア -->
+    <ul style="list-style: none">
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+  <div>
+    <!-- 完了タスク一覧 -->
+    <h2>DONE AREA</h2>
+    <ul style="list-style: none">
+      {{#each finished}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div>
+</body>
