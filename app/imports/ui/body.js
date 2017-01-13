@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import { Tasks } from '../api/tasks.js';
@@ -29,11 +30,7 @@ Template.body.events({
     const target = event.target;
     const text = target.text.value;
 
-    Tasks.insert({
-      text,
-      createdAt: new Date(),
-      checked: false,
-    });
+    Meteor.call('tasks.insert', text);
     target.text.value = '';
   },
   'change .hide-completed input'(event, instance){
