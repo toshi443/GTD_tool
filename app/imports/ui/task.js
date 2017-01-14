@@ -3,6 +3,11 @@ import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
 import './task.html';
 
+Template.task.helpers({
+  isOwner(){
+    return this.owner === Meteor.userId();
+  },
+});
 Template.task.events({
   'click .toggle-checked'(){
     Meteor.call('tasks.setChecked', this._id, !this.checked);
